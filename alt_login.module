@@ -145,7 +145,7 @@ function alt_login_delete($uid) {
 function alt_login_user_validate($form, &$form_state) {
   // Set uid to a non-existent user so the queries will still work if no user
   // object is present.
-  $user = $form_state['user'];
+  $user = isset($form_state['user']) ? $form_state['user'] : NULL;
   $uid = isset($user->uid) ? $user->uid : -1;
   $values = $form_state['values'];
   $name = $values['name'];
